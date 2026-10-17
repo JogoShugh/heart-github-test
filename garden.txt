@@ -1,2 +1,2 @@
-tomatoes: water daily
+tomatoes: water twice daily
 beans: water weekly

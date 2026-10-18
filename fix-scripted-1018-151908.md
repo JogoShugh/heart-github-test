@@ -1,0 +1,1 @@
+Bed names may not be blank.

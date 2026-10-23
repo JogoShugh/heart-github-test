@@ -1,0 +1,12 @@
+name: deps-check
+on:
+  pull_request:
+    branches: [deps-main]
+jobs:
+  deps-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sleep 20
+      - name: The bumped version must not be broken
+        run: "! grep -q broken deps.txt"

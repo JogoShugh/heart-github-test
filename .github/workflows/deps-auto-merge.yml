@@ -1,0 +1,17 @@
+name: deps-auto-merge
+on:
+  pull_request:
+    types: [labeled]
+    branches: [deps-main]
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  auto-merge:
+    if: github.event.label.name == 'dependabot-actions'
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh pr merge --auto --squash "$PR" --repo "$GITHUB_REPOSITORY"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.html_url }}

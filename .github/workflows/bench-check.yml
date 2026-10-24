@@ -1,0 +1,14 @@
+name: bench-check
+on:
+  pull_request:
+    branches: [bench-main]
+jobs:
+  bench-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: The bench holds 12 trays at most
+        run: |
+          total=$(cat trays/*.yaml 2>/dev/null | awk '/^trays:/ { s += $2 } END { print s + 0 }')
+          echo "Trays on the bench: $total of 12"
+          [ "$total" -le 12 ]

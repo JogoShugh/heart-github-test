@@ -1,1 +1,1 @@
-left-pad 1.0.5
+left-pad 1.0.6

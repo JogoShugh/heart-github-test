@@ -1,1 +1,1 @@
-left-pad 1.0.44
+left-pad 1.0.45
